@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { Post } from '../../../model/post.model';
 @Component({
@@ -26,5 +26,6 @@ export class PostListComponent {
   //     content: 'This is the Third post',
   //   },
   // ];
-  posts: Post[] = [];
+  @Input() posts: Post[] = [];
+
 }
