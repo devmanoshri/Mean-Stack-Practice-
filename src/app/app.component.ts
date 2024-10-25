@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { PostCreateComponent } from './posts/post-create/post-create.component';
+import { ɵBrowserAnimationBuilder } from '@angular/animations';
+import { HeaderComponent } from "./header/header.component";
+import { PostListComponent } from "./posts/post-list/post-list.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, PostCreateComponent, HeaderComponent, PostListComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'mean-stack-practice';
+
 }
