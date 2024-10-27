@@ -1,11 +1,14 @@
 @if(posts.length>0){
 <mat-accordion multi="true">
-  @for(post of posts; track post.id){
+  @for(post of posts; track post.title){
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       {{ post.title }}
     </mat-expansion-panel-header>
     <p>{{ post.content }}</p>
+    <hr />
+    <button mat-button color="primary">Edit</button>
+    <button mat-button color="warn">Delete</button>
   </mat-expansion-panel>
   }
 </mat-accordion>
