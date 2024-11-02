@@ -15,20 +15,12 @@ export class PostListComponent implements OnInit, OnDestroy {
 
   posts: Post[] = [];
 
-
   private postsSub: any;
   private postsSub2: any;
 
   constructor(public postsService: PostsService) {}
 
   ngOnInit() {
-    // this.postsService.getPosts();
-    // this.postsSub = this.postsService
-    //   .getPostUpdateListener()
-    //   .subscribe((posts: Post[]) => {
-    //     this.posts = posts;
-    //   });
-
     this.postsSub = this.postsService.getPosts().subscribe({
       next: (postData: { message: string; posts: Post[] }) => {
         this.posts = postData.posts;
@@ -36,16 +28,11 @@ export class PostListComponent implements OnInit, OnDestroy {
       error: () => {},
     });
 
-
-
     this.postsSub2 = this.postsService
       .getPostUpdateListener()
-      .subscribe((postsData: Post[]) => {
-        console.log(postsData);
-        this.posts = postsData;
+      .subscribe((postsData: Post) => {
+        this.posts = this.posts.concat(postsData);
       });
-
-
   }
 
   ngOnDestroy() {
